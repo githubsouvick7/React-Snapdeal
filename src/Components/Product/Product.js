@@ -1,9 +1,21 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
+import './Product.css'
 
 const Product = () => {
     const [loading, setLoading] = useState(false);
+    const [eData, seteData] = useState([]);
+
+    const getData = () => {
+        fetch(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`)
+            .then(res => res.json())
+            .then(data => seteData(data))
+    }
+    useEffect(() => {
+        getData();
+    }, [])
+
 
     const Loading = () => {
         return (
@@ -37,6 +49,17 @@ const Product = () => {
                 <div className="row justify-content-center">
                     {loading ? <Loading /> : <ShowProduct />}
                 </div>
+            </div>
+            <div className="dispproduct">
+                {
+                    eData.map(item => (
+                        <>
+                            <img width={200} src={item.image} />
+                            <p>{item.title}</p>
+                            <p>{item.description}</p>
+                        </>
+                    ))
+                }
             </div>
         </div>
     )

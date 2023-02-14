@@ -12,7 +12,7 @@ const Navbar = () => {
                 </div>
                 <div className="search">
                     <input type="" className='input' placeholder='Search Here ...' />
-                    <button className='btn'><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    <button className='onebtn'><i class="fa-solid fa-magnifying-glass"></i> Search</button>
                 </div>
                 <div className="extra">
                     <div className="cart">

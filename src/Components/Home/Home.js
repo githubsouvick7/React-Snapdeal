@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <>
             <Product />
-            <div className="data">
+            {/* <div className="data">
                 <div className='disp'>
                     {
                         Data.map(item => (
@@ -27,7 +27,7 @@ const Home = () => {
                         ))
                     }
                 </div>
-            </div>
+            </div> */}
 
         </>
     )
