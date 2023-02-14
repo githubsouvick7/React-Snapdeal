@@ -1,18 +1,54 @@
-.dispproduct {
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
 .main {
     width: 99%;
-
 }
 
 .compcard {
     display: flex;
     width: 100%;
+}
 
+.btn {
+    background-color: #4c4c50;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 7px 12px;
+    margin-right: 30px;
+    border: 2px solid #ffffff;
+    transition: .3s;
+}
+
+.btn:hover {
+    border: 2px solid #070630;
+    box-shadow: 7px 7px 12px gray;
+}
+
+.dispproduct {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.compcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 500px;
+    margin: 30px;
+    border: 1px solid grey;
+    border-radius: 8px;
+    padding: 18px;
+    transform: scale(1);
+    transition: .5s;
+}
+
+.compcard:hover {
+    transform: scale(1.1);
+}
+
+.wish {
+    position: absolute;
+    font-size: 28px;
+    right: 10%;
+    color: rgb(163, 13, 13);
 }
