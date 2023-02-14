@@ -1,4 +1,18 @@
 .dispproduct {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.main {
+    width: 99%;
+
+}
+
+.compcard {
+    display: flex;
+    width: 100%;
+
 }

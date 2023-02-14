@@ -1,17 +1,20 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.css";
-import Header from './Components/Header/Header'
+import FullData from './Components/FullData/FullData';
 import Home from './Components/Home/Home';
-import Navbar from './Components/Navbar/Navbar'
+
 
 
 const App = () => {
   return (
     <>
-      <Header />
-      <Navbar />
-      <Home />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='product/:id' element={<FullData />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
