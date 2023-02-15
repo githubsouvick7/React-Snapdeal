@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import { CartContext } from '../Context/Context';
 import './Product.css'
 
 const api = `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`;
 
 const Product = () => {
     const [eData, seteData] = useState([]);
-    let white = '#fff'
-    const [bgColor, setBgColor] = useState(white);
 
     const getData = () => {
         fetch(api)
@@ -20,10 +19,10 @@ const Product = () => {
         getData();
     }, [])
 
-    const colorChange = () => {
-        let red = 'rgb(163, 13, 13)'
-        setBgColor(red);
-    }
+
+    const GlobalState = useContext(CartContext);
+    const disp = GlobalState.dispatch;
+    console.log(GlobalState);
 
     return (
         <>
@@ -42,9 +41,11 @@ const Product = () => {
                                         <div className="desc">
                                             <hr />
                                             <h5>{fullName}</h5>
-                                            <p>{price}</p>
-                                            <button className="btn">Add to Cart</button>
-                                            <span className='wish'><i onClick={colorChange} className='fa-sharp fa-regular fa-heart'></i></span>
+                                            <p>RS : ${price}</p>
+                                            <button className="btn" onClick={() => disp({ type: 'ADD', paylode: item })}>Add to Cart</button>
+                                            <span className='wish'>
+                                                <i className='fa-sharp fa-regular fa-heart'></i>
+                                            </span>
                                         </div>
                                     </div>
 

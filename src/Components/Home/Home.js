@@ -1,4 +1,5 @@
 import React from 'react'
+import Categories from '../Catagories/Categories'
 import Header from '../Header/Header'
 import Navbar from '../Navbar/Navbar'
 import Product from '../Product/Product'
@@ -10,7 +11,11 @@ const Home = () => {
         <>
             <Header />
             <Navbar />
-            <Product />
+            <div className="maincomp">
+                {/* <Categories /> */}
+                <Product />
+            </div>
+
         </>
     )
 }

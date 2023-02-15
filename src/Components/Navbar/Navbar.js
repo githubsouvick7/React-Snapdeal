@@ -3,6 +3,7 @@ import './Navbar.css'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link, NavLink } from 'react-router-dom';
+import Login from '../Login/Login';
 // import Cart from './Components/Cart/Cart'
 
 const Navbar = () => {
@@ -24,12 +25,14 @@ const Navbar = () => {
                         </NavLink>
                     </div>
                     <div className="signin">
-                        <Tippy content='Souvick'>
+                        <Tippy content={<Login />}>
                             <span>Sign In</span>
                         </Tippy>
-                        <div className="set">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
+                        <Tippy content={<p>Souvick</p>}>
+                            <div className="set">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                        </Tippy>
                     </div>
                 </div>
             </section>

@@ -1,5 +1,5 @@
 .main {
-    width: 99%;
+    width: 70%;
 }
 
 .compcard {
@@ -25,6 +25,7 @@
 .dispproduct {
     display: grid;
     grid-template-columns: auto auto auto auto;
+    margin-left: 20%;
 }
 
 .compcard {
