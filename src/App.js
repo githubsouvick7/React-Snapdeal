@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "./App.css";
+import Cart from './Components/Cart/Cart';
 import FullData from './Components/FullData/FullData';
 import Home from './Components/Home/Home';
 
@@ -13,6 +14,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='product/:id' element={<FullData />} />
+          <Route path='/cart' element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </>

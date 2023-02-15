@@ -2,6 +2,8 @@ import React from 'react'
 import './Navbar.css'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Link, NavLink } from 'react-router-dom';
+// import Cart from './Components/Cart/Cart'
 
 const Navbar = () => {
     return (
@@ -16,8 +18,10 @@ const Navbar = () => {
                 </div>
                 <div className="extra">
                     <div className="cart">
-                        <span>Cart</span>
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <NavLink to='./cart'>
+                            <span style={{ textDecoration: 'none' }}>Cart</span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </NavLink>
                     </div>
                     <div className="signin">
                         <Tippy content='Souvick'>
