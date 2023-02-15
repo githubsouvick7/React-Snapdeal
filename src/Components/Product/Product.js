@@ -42,10 +42,9 @@ const Product = () => {
                                             <hr />
                                             <h5>{fullName}</h5>
                                             <p>RS : ${price}</p>
-                                            <button className="btn" onClick={() => disp({ type: 'ADD', paylode: item })}>Add to Cart</button>
-                                            <span className='wish'>
-                                                <i className='fa-sharp fa-regular fa-heart'></i>
-                                            </span>
+                                            <button className="btn" onClick={() => disp({ type: 'ADD', paylode: item })}>
+                                                Add to Cart
+                                            </button>
                                         </div>
                                     </div>
 

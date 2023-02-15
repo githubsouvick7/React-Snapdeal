@@ -2,16 +2,20 @@ import React from 'react'
 import './Navbar.css'
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { Link, NavLink } from 'react-router-dom';
-import Login from '../Login/Login';
-// import Cart from './Components/Cart/Cart'
+import { NavLink } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Navbar = () => {
+    const { loginWithRedirect } = useAuth0();
+    const { logout } = useAuth0();
+    const { isAuthenticated } = useAuth0();
+
     return (
         <>
             <section className='section-navbar'>
                 <div className="logo">
-                    <img src="https://i3.sdlcdn.com/img/snapdeal/darwin/logo/sdLatestLogo.svg" />
+                    <img src="https://i3.sdlcdn.com/img/snapdeal/darwin/logo/sdLatestLogo.svg" alt="snapdeal" />
                 </div>
                 <div className="search">
                     <input type="" className='input' placeholder='Search Here ...' />
@@ -24,20 +28,28 @@ const Navbar = () => {
                                 <div className="cartcomp">
                                     <div className="c">
                                         <i class="fa-solid fa-cart-shopping"></i>
-                                        <span>0</span>
                                     </div>
                                 </div>
                             </Tippy>
                         </NavLink>
                     </div>
                     <div className="signin">
-                        <NavLink to='./Login' >
-                            <Tippy content={<p>SingIn</p>}>
-                                <div className="set">
-                                    <i class="fa-solid fa-user"></i>
-                                </div>
-                            </Tippy>
-                        </NavLink>
+                        {
+                            isAuthenticated ? (
+                                <button className='set' onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                                    Log Out
+                                </button>
+                            ) : (
+                                <button className='set' onClick={() => loginWithRedirect()}>
+                                    Login
+                                </button>
+                            )
+                        }
+                        <Tippy content={<h1>Souvck</h1>}>
+                            <div className="setuser">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                        </Tippy>
                     </div>
                 </div>
             </section>

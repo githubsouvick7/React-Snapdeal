@@ -1,28 +1,39 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../Context/Context'
+import './Cart.css'
+import CartNavbar from './CartNavbar';
+
 
 const Cart = () => {
     const GlobalState = useContext(CartContext);
     const state = GlobalState.state;
     const dispatch = GlobalState.dispatch;
+
+
     return (
-        <div>
-            {
-                state.map((item, index) => {
-                    return (
-                        <div className="card">
-                            <img src={item.image} width={100} />
-                            <div className="desc">
-                                <h4>{item.title}</h4>
-                                <h5>{item.price}</h5>
-                                <p>{item.description}</p>
+        <>
+            <CartNavbar />
+
+            <div className='container my-5'>
+                {
+                    state.map((item, index) => {
+                        return (
+                            <div className="onecomp">
+                                <img src={item.image} alt="snapdeal" />
+                                <div className="desccomp">
+                                    <h4>{item.title}</h4>
+                                    <p>Rating : {item.rating.rate}</p>
+                                    <h4>${item.price}</h4>
+                                </div>
+                                <h1 className='dele' onClick={() => dispatch({ type: 'REMOVE', paylode: item })}>
+                                    <i class="fa-solid fa-trash"></i>
+                                </h1>
                             </div>
-                            <h1 onClick={() => dispatch({ type: 'REMOVE', paylode: item })}>X</h1>
-                        </div>
-                    )
-                })
-            }
-        </div>
+                        )
+                    })
+                }
+            </div>
+        </>
     )
 }
 

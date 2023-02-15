@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, NavLink } from 'react-router-dom'
+import CartNavbar from '../Cart/CartNavbar';
+import './FullData.css'
+import { useContext } from 'react';
+import { CartContext } from '../Context/Context';
+import Navbar from '../Navbar/Navbar';
 
 const apikey = `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`
 
@@ -27,6 +32,10 @@ const FullData = () => {
         getMovies(`${apikey}/${id}`)
     }, [id])
 
+    const GlobalState = useContext(CartContext);
+    const disp = GlobalState.dispatch;
+    console.log(GlobalState);
+
     if (isLoading) {
         return (
             <div className="movie-section">
@@ -36,24 +45,38 @@ const FullData = () => {
     }
 
     return (
-        <section className="movie-section">
-            <div className="movie-card">
-                <figure>
-                    <img width={200} src={allData.image} alt="" />
-                </figure>
-                <div className="card-content">
-                    <p className="title">{allData.title}</p>
-                    <p className=""></p>
-                    <p className="card-text">{allData.Released}</p>
-                    <p className="card-text">{allData.Genre}</p>
-                    <p className="card-text">{allData.imdbRating} / 10</p>
-                    <p className="card-text">{allData.Country}</p>
-                    <NavLink to="/" className="back-btn">
-                        Go Back
-                    </NavLink>
+        <>
+            <Navbar />
+            <section className="comp-section">
+                <div className="comp-card">
+                    <figure>
+                        <img width={200} src={allData.image} className='listimage' />
+                    </figure>
+                    <div className="card-content">
+                        <div className="allbtn">
+                            <h4 className="title">{allData.title}</h4>
+                            <h6 className="card-text">About :-{allData.description}</h6>
+                            <h3 className="card-text">Price ${allData.price}</h3>
+                            <p className="card-text">Rating out of 10 is {allData.rating.rate}/10</p>
+                            <p className="card-text">Rating given by {allData.rating.count} people</p>
+                            <p className="card-text">About :-{allData.description}</p>
+                        </div>
+                        <div className="allbtn">
+                            <button className="btn" onClick={() => disp({ type: 'ADD', paylode: allData })}>
+                                Add to Cart<i class="fa-solid fa-cart-shopping"></i>
+                            </button>
+                            <NavLink to='/'>
+                                <button className='btn'>Buy Now</button>
+                            </NavLink>
+                            <NavLink to="/" className="back-btn">
+                                <button className="btn"><i class="fa-solid fa-arrow-left"></i> Go Back</button>
+                            </NavLink>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
+
     );
 }
 
