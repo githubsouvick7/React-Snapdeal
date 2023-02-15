@@ -20,19 +20,24 @@ const Navbar = () => {
                 <div className="extra">
                     <div className="cart">
                         <NavLink to='./cart'>
-                            <span style={{ textDecoration: 'none' }}>Cart</span>
-                            <i class="fa-solid fa-cart-shopping"></i>
+                            <Tippy content={<p>Cart</p>}>
+                                <div className="cartcomp">
+                                    <div className="c">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                        <span>0</span>
+                                    </div>
+                                </div>
+                            </Tippy>
                         </NavLink>
                     </div>
                     <div className="signin">
-                        <Tippy content={<Login />}>
-                            <span>Sign In</span>
-                        </Tippy>
-                        <Tippy content={<p>Souvick</p>}>
-                            <div className="set">
-                                <i class="fa-solid fa-user"></i>
-                            </div>
-                        </Tippy>
+                        <NavLink to='./Login' >
+                            <Tippy content={<p>SingIn</p>}>
+                                <div className="set">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                            </Tippy>
+                        </NavLink>
                     </div>
                 </div>
             </section>

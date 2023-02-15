@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { act } from "react-dom/test-utils";
 
 export const CartContext = createContext();
 
@@ -13,7 +14,9 @@ export const Context = (props) => {
                 } else {
                     return [...state, action.paylode]
                 }
-
+            case 'REMOVE':
+                const tempstate = state.filter((item) => item.id !== action.paylode.id)
+                return tempstate
 
             default: return state;
         }

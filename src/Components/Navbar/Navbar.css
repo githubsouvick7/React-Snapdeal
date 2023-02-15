@@ -81,3 +81,23 @@
 .signin span {
     cursor: pointer;
 }
+
+.cartcomp {
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none !important;
+}
+
+.cartcomp span {
+    text-decoration: none !important;
+}
+
+.cartcomp .c {
+    width: 80px;
+    height: 40px;
+    background-color: #cd2359;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

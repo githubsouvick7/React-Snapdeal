@@ -9,9 +9,17 @@ const Cart = () => {
         <div>
             {
                 state.map((item, index) => {
-                    return <div className="card">
-                        <img src={item.image} width={200} />
-                    </div>
+                    return (
+                        <div className="card">
+                            <img src={item.image} width={100} />
+                            <div className="desc">
+                                <h4>{item.title}</h4>
+                                <h5>{item.price}</h5>
+                                <p>{item.description}</p>
+                            </div>
+                            <h1 onClick={() => dispatch({ type: 'REMOVE', paylode: item })}>X</h1>
+                        </div>
+                    )
                 })
             }
         </div>
