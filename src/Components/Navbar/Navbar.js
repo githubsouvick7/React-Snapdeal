@@ -45,7 +45,7 @@ const Navbar = () => {
                                 </button>
                             )
                         }
-                        <Tippy content={<p>Souvick</p>}>
+                        <Tippy content={<p>No User Found</p>}>
                             <div className="setuser">
                                 <i class="fa-solid fa-user"></i>
                             </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import Categories from '../Catagories/Categories'
 import Header from '../Header/Header'
 import Navbar from '../Navbar/Navbar'
+import Image from '../OfferPage/Image'
 import Product from '../Product/Product'
 import './Home.css'
 
@@ -11,6 +12,7 @@ const Home = () => {
         <>
             <Header />
             <Navbar />
+            <Image />
             <div className="maincomp">
                 {/* <Categories /> */}
                 <Product />
